@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sleuth-server
+  cloud:
+    client:
+     ipAddress: 18.188.10.116
+server:
+  port: 9411
+  
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://18.219.20.8:8761/eureka/
+  instance:
+      prefer-ip-address: true
+      ip-address: 18.188.10.116
+      instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
