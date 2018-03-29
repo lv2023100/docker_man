@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: container
+  sleuth:
+        sampler:
+            percentage: 1.0
+server:
+  port: 8083
+  
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://18.219.20.8:8761/eureka/
+  instance:
+      prefer-ip-address: true
+      ip-address: 18.188.10.116
+      instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+      
+logging:
+    level:
+        org:
+            springframework:
+                cloud:
+                    sleuth: DEBUG
+                web:
+                    servlet:
+                        DispatcherServlet: DEBUG
+logginglevel:
+    root: INFO
+
